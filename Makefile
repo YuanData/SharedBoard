@@ -18,4 +18,7 @@ migrate_down:
 sqlc:
 	sqlc generate
 
-.PHONY: network postgres create_db drop_db migrate_up migrate_down sqlc
+test:
+	go test -v -cover -short ./...
+
+.PHONY: network postgres create_db drop_db migrate_up migrate_down sqlc test
