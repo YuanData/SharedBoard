@@ -15,4 +15,7 @@ migrate_up:
 migrate_down:
 	migrate -path db/migration -database "$(DB_URL)" -verbose down
 
-.PHONY: network postgres create_db drop_db migrate_up migrate_down
+sqlc:
+	sqlc generate
+
+.PHONY: network postgres create_db drop_db migrate_up migrate_down sqlc
