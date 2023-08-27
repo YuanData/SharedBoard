@@ -5,13 +5,13 @@ import (
 	"log"
 
 	"github.com/YuanData/SharedBoard/api"
-	"github.com/YuanData/SharedBoard/cfg"
 	db "github.com/YuanData/SharedBoard/db/sqlc"
+	"github.com/YuanData/SharedBoard/util"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	config, err := cfg.LoadConfig("./cfg")
+	config, err := util.LoadConfig("./cfg")
 	if err != nil {
 		log.Fatal("can not load configuration:", err)
 	}

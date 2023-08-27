@@ -6,14 +6,14 @@ import (
 	"os"
 	"testing"
 
-	"github.com/YuanData/SharedBoard/cfg"
+	"github.com/YuanData/SharedBoard/util"
 	_ "github.com/lib/pq"
 )
 
 var testQueries *Queries
 
 func TestMain(m *testing.M) {
-	config, err := cfg.LoadConfig("../../cfg")
+	config, err := util.LoadConfig("../../cfg")
 	if err != nil {
 		log.Fatal("can not load configuration:", err)
 	}
