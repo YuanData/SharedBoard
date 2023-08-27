@@ -80,7 +80,7 @@ func (q *Queries) ListSharedlink(ctx context.Context, arg ListSharedlinkParams) 
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Sharedlink
+	items := []Sharedlink{}
 	for rows.Next() {
 		var i Sharedlink
 		if err := rows.Scan(
