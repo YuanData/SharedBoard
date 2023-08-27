@@ -1,0 +1,1 @@
+curl -X POST http://localhost:8080/sharedlink -d '{"name":"Elit lorem ligula.","urlhash":"70003ec1-1dfd-478e-889c-e34212cc58de"}' -H "Content-Type: application/json" | jq .
