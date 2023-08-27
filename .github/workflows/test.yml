@@ -38,6 +38,12 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v3
 
+    - name: Create config.env
+      run: |
+        echo "DB_DRIVER=${{ env.DB_DRIVER }}" >> cfg/config.env
+        echo "DB_SOURCE=${{ secrets.DB_SOURCE }}" >> cfg/config.env
+        echo "HTTP_SERVER_ADDRESS=${{ env.HTTP_SERVER_ADDRESS }}" >> cfg/config.env
+
     - name: Install golang-migrate
       run: |
         curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
