@@ -6,18 +6,18 @@ import (
 	"os"
 	"testing"
 
+	"github.com/YuanData/SharedBoard/cfg"
 	_ "github.com/lib/pq"
-)
-
-const (
-	dbDriver = "postgres"
-	dbSource = "postgresql://root:helloworld@localhost:5432/sharedboard?sslmode=disable"
 )
 
 var testQueries *Queries
 
 func TestMain(m *testing.M) {
-	conn, err := sql.Open(dbDriver, dbSource)
+	config, err := cfg.LoadConfig("../../cfg")
+	if err != nil {
+		log.Fatal("can not load configuration:", err)
+	}
+	conn, err := sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("can not connect to DB:", err)
 	}
