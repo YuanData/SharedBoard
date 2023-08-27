@@ -40,9 +40,9 @@ jobs:
 
     - name: Create config.env
       run: |
-        echo "DB_DRIVER=${{ env.DB_DRIVER }}" >> cfg/config.env
+        echo "DB_DRIVER=$DB_DRIVER" >> cfg/config.env
         echo "DB_SOURCE=${{ secrets.DB_SOURCE }}" >> cfg/config.env
-        echo "HTTP_SERVER_ADDRESS=${{ env.HTTP_SERVER_ADDRESS }}" >> cfg/config.env
+        echo "HTTP_SERVER_ADDRESS=$HTTP_SERVER_ADDRESS" >> cfg/config.env
 
     - name: Install golang-migrate
       run: |
