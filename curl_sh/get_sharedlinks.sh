@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:8080/sharedlinks?page_id=1&page_size=5" -H "Content-Type: application/json" | jq .

@@ -15,6 +15,8 @@ func NewServer(store *db.Store) *Server {
 
 	router := gin.Default()
 	router.POST("/sharedlink", server.createSharedlink)
+	router.GET("/sharedlink/:id", server.getSharedlink)
+	router.GET("/sharedlinks", server.listSharedlinks)
 
 	server.router = router
 	return server
