@@ -23,4 +23,7 @@ test:
 server:
 	go run main.go
 
-.PHONY: network postgres create_db drop_db migrate_up migrate_down sqlc test server
+mock:
+	mockgen -destination db/mock/store.go github.com/YuanData/SharedBoard/db/sqlc Store
+
+.PHONY: network postgres create_db drop_db migrate_up migrate_down sqlc test server mock
