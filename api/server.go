@@ -16,10 +16,18 @@ func NewServer(store db.Store) *Server {
 	server := &Server{store: store}
 
 	router := gin.Default()
+
+	allowedOrigins := []string{
+		".github.io",
+		// "http://localhost:1313",
+	}
 	router.Use(func(c *gin.Context) {
 		origin := c.Request.Header.Get("Origin")
-		if strings.HasSuffix(origin, ".github.io") {
-			c.Writer.Header().Set("Access-Control-Allow-Origin", origin)
+		for _, allowedOrigin := range allowedOrigins {
+			if strings.HasSuffix(origin, allowedOrigin) {
+				c.Writer.Header().Set("Access-Control-Allow-Origin", origin)
+				break
+			}
 		}
 		c.Next()
 	})
