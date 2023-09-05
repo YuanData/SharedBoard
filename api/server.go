@@ -32,9 +32,9 @@ func NewServer(store db.Store) *Server {
 		c.Next()
 	})
 
-	router.POST("/sharedlink", server.createSharedlink)
-	router.GET("/sharedlink/:id", server.getSharedlink)
-	router.GET("/sharedlinks", server.listSharedlinks)
+	router.POST("/sharedlinks", server.createSharedlink) //新增sharedlink
+	router.GET("/sharedlinks/:id", server.getSharedlink) //返回一個sharedlink
+	router.GET("/sharedlinks", server.listSharedlinks)   //返回 list of sharedlink
 
 	server.router = router
 	return server

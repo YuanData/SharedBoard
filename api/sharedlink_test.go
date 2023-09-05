@@ -101,7 +101,7 @@ func TestGetSharedlinkAPI(t *testing.T) {
 			server := NewServer(store)
 			recorder := httptest.NewRecorder()
 
-			url := fmt.Sprintf("/sharedlink/%d", tc.SharedlinkID)
+			url := fmt.Sprintf("/sharedlinks/%d", tc.SharedlinkID)
 			request, err := http.NewRequest(http.MethodGet, url, nil)
 			require.NoError(t, err)
 
